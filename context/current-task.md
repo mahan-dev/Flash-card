@@ -1,2 +1,2 @@
 # Current Task:
-Style basic layout in CSS
+Implement addCard() logic in JS
