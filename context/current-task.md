@@ -1,2 +1,2 @@
 # Current Task:
-Implement addCard() logic in JS
+Implement card renderCards()
