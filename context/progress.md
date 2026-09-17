@@ -2,4 +2,4 @@
 
 - Project initialized
 - Context files created
-- Waiting for first UI implementation
+- HTML scaffold created
