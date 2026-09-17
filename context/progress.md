@@ -7,3 +7,4 @@
 - JS state initialized
 - Rendering system done
 - Card flip implemented
+- Learned feature added

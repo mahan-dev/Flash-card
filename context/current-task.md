@@ -1,2 +1,2 @@
 # Current Task:
-Add learned button
+Persist data in localStorage
