@@ -25,10 +25,28 @@ function addCard(event) {
         };
         
         cards.push(newCard);
+        renderCards();
         
         // Clear form inputs
         addCardForm.reset();
     }
+}
+
+function renderCards() {
+    cardContainer.innerHTML = '';
+
+    cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.dataset.id = card.id;
+
+        const cardFront = document.createElement('div');
+        cardFront.classList.add('card-front');
+        cardFront.textContent = card.question;
+
+        cardElement.appendChild(cardFront);
+        cardContainer.appendChild(cardElement);
+    });
 }
 
 // Event Listeners

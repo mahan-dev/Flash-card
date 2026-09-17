@@ -1,2 +1,2 @@
 # Current Task:
-Implement card renderCards()
+Implement flipCard() interaction
