@@ -44,9 +44,21 @@ function renderCards() {
         cardFront.classList.add('card-front');
         cardFront.textContent = card.question;
 
+        const cardBack = document.createElement('div');
+        cardBack.classList.add('card-back');
+        cardBack.textContent = card.answer;
+
         cardElement.appendChild(cardFront);
+        cardElement.appendChild(cardBack);
+        
+        cardElement.addEventListener('click', () => flipCard(cardElement));
+        
         cardContainer.appendChild(cardElement);
     });
+}
+
+function flipCard(cardElement) {
+    cardElement.classList.toggle('flipped');
 }
 
 // Event Listeners

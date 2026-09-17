@@ -6,3 +6,4 @@
 - Css basic styling done
 - JS state initialized
 - Rendering system done
+- Card flip implemented
