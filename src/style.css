@@ -1,18 +1,20 @@
 /* CSS */
 :root {
-    --primary-color: #4a90e2;
-    --primary-hover: #357ab8;
-    --success-color: #2ecc71;
-    --success-hover: #27ae60;
-    --bg-color: #f4f4f9;
-    --card-bg: #ffffff;
-    --text-color: #333333;
-    --border-color: #e2e2e2;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+    /* Dark theme colors */
+    --primary-color: #bb86fc;          /* Accent (purple) */
+    --primary-hover: #9a67ea;          /* Accent hover */
+    --success-color: #03dac6;          /* Success (teal) */
+    --success-hover: #02c5b0;          /* Success hover */
+    --bg-color: #121212;               /* Page background */
+    --card-bg: #1e1e1e;                /* Card background */
+    --text-color: #e0e0e0;             /* Primary text */
+    --border-color: #333333;           /* Borders / inputs */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.5);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.7);
 }
 
+/* Global styles */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
@@ -25,10 +27,11 @@ body {
     line-height: 1.6;
 }
 
+/* Header */
 header {
     width: 100%;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 0.5rem 0;
     margin-bottom: 2.5rem;
@@ -36,13 +39,7 @@ header {
     box-shadow: var(--shadow-md);
 }
 
-header h1 {
-    margin: 0;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 1.5rem;
-}
-
+/* Main container */
 main {
     width: 100%;
     max-width: 640px;
@@ -53,6 +50,7 @@ main {
     box-sizing: border-box;
 }
 
+/* Add Card Form */
 #add-card-form {
     width: 100%;
     background: var(--card-bg);
@@ -71,7 +69,7 @@ main {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #555;
+    color: var(--text-color);
 }
 
 #add-card-form input[type="text"] {
@@ -81,20 +79,23 @@ main {
     border-radius: 8px;
     box-sizing: border-box;
     font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 #add-card-form input[type="text"]:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.2);
 }
 
+/* Submit button */
 #add-card-form button {
     width: 100%;
     padding: 12px;
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -111,6 +112,7 @@ main {
     transform: scale(0.98);
 }
 
+/* Filter buttons */
 #filter-container {
     width: 100%;
     display: flex;
@@ -122,7 +124,7 @@ main {
 .filter-btn {
     padding: 10px 20px;
     border: 1px solid var(--primary-color);
-    background-color: white;
+    background-color: transparent;
     color: var(--primary-color);
     border-radius: 8px;
     cursor: pointer;
@@ -132,7 +134,7 @@ main {
 }
 
 .filter-btn:hover {
-    background-color: #e6f0fa;
+    background-color: rgba(187, 134, 252, 0.1);
 }
 
 .filter-btn:active {
@@ -141,9 +143,10 @@ main {
 
 .filter-btn.active {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
 }
 
+/* Card container */
 #card-container {
     width: 100%;
     display: flex;
@@ -151,7 +154,7 @@ main {
     gap: 20px;
 }
 
-/* Modern card styling for dynamically created cards */
+/* Card styling */
 .card {
     background: var(--card-bg);
     border-radius: 12px;
@@ -167,15 +170,19 @@ main {
     box-shadow: var(--shadow-lg);
 }
 
-.card .card-front, .card .card-back {
+.card .card-front,
+.card .card-back {
     margin-bottom: 16px;
     font-size: 18px;
+    color: var(--text-color);
 }
 
+/* Back side hidden by default */
 .card .card-back {
     display: none;
 }
 
+/* Flipped state */
 .card.flipped .card-back {
     display: block;
 }
@@ -184,6 +191,7 @@ main {
     display: none;
 }
 
+/* Card buttons */
 .card .card-buttons {
     display: flex;
     gap: 12px;
@@ -195,22 +203,23 @@ main {
     border-radius: 8px;
     cursor: pointer;
     background-color: var(--border-color);
-    color: #555;
+    color: #e0e0e0;
     font-weight: 600;
     transition: background-color 0.2s, transform 0.1s;
 }
 
 .card .card-buttons button:hover {
-    background-color: #d4d4d4;
+    background-color: #555555;
 }
 
 .card .card-buttons button:active {
     transform: scale(0.98);
 }
 
+/* Learned button */
 .card .card-buttons button.learned {
     background-color: var(--success-color);
-    color: white;
+    color: #ffffff;
 }
 
 .card .card-buttons button.learned:hover {
@@ -220,5 +229,5 @@ main {
 /* Visually distinguish learned cards */
 .card.learned {
     border-left: 6px solid var(--success-color);
-    background-color: #eafff0;
+    background-color: #0d3b33; /* Slightly tinted dark teal */
 }
