@@ -9,3 +9,4 @@
 - Card flip implemented
 - Learned feature added
 - Persistence implemented
+- Filtering system added

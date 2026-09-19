@@ -2,12 +2,14 @@
 
 // State
 let cards = [];
+let currentFilter = 'all';
 
 // DOM Elements
 const addCardForm = document.getElementById('add-card-form');
 const questionInput = document.getElementById('question');
 const answerInput = document.getElementById('answer');
 const cardContainer = document.getElementById('card-container');
+const filterButtons = document.querySelectorAll('.filter-btn');
 
 // LocalStorage key
 const STORAGE_KEY = 'flashcards';
@@ -68,7 +70,13 @@ function addCard(event) {
 function renderCards() {
     cardContainer.innerHTML = '';
 
-    cards.forEach(card => {
+    const filteredCards = cards.filter(card => {
+        if (currentFilter === 'learned') return card.learned;
+        if (currentFilter === 'unlearned') return !card.learned;
+        return true; // 'all'
+    });
+
+    filteredCards.forEach(card => {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
         if (card.learned) {
@@ -120,8 +128,19 @@ function markLearned(id) {
     }
 }
 
+function setFilter(filter) {
+    currentFilter = filter;
+    filterButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    renderCards();
+}
+
 // Event Listeners
 addCardForm.addEventListener('submit', addCard);
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+});
 
 // Initial load
 loadCards();

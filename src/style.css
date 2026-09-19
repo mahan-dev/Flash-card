@@ -72,6 +72,34 @@ main {
     background-color: #357ab8;
 }
 
+#filter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #4a90e2;
+    background-color: white;
+    color: #4a90e2;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #e6f0fa;
+}
+
+.filter-btn.active {
+    background-color: #4a90e2;
+    color: white;
+}
+
 #card-container {
     width: 100%;
     display: flex;

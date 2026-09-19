@@ -1,2 +1,2 @@
 # Current Task:
-Add filter (filtered/unfiltered)
+Improve Ui styling
