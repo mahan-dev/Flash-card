@@ -1,4 +1,4 @@
-// JAVASCRIPT
+/* JAVASCRIPT */
 
 // State
 let cards = [];
@@ -9,10 +9,42 @@ const questionInput = document.getElementById('question');
 const answerInput = document.getElementById('answer');
 const cardContainer = document.getElementById('card-container');
 
+// LocalStorage key
+const STORAGE_KEY = 'flashcards';
+
 // Functions
+
+/**
+ * Load cards from localStorage into the state.
+ */
+function loadCards() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+        try {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) {
+                cards = parsed;
+            }
+        } catch (e) {
+            console.error('Failed to parse stored cards:', e);
+        }
+    }
+}
+
+/**
+ * Persist current state of cards to localStorage.
+ */
+function saveCards() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+    } catch (e) {
+        console.error('Failed to save cards:', e);
+    }
+}
+
 function addCard(event) {
     event.preventDefault();
-    
+
     const question = questionInput.value.trim();
     const answer = answerInput.value.trim();
 
@@ -23,10 +55,11 @@ function addCard(event) {
             answer: answer,
             learned: false
         };
-        
+
         cards.push(newCard);
         renderCards();
-        
+        saveCards();
+
         // Clear form inputs
         addCardForm.reset();
     }
@@ -67,9 +100,9 @@ function renderCards() {
         cardElement.appendChild(cardFront);
         cardElement.appendChild(cardBack);
         cardElement.appendChild(cardButtons);
-        
+
         cardElement.addEventListener('click', () => flipCard(cardElement));
-        
+
         cardContainer.appendChild(cardElement);
     });
 }
@@ -83,8 +116,13 @@ function markLearned(id) {
     if (card) {
         card.learned = !card.learned;
         renderCards();
+        saveCards();
     }
 }
 
 // Event Listeners
 addCardForm.addEventListener('submit', addCard);
+
+// Initial load
+loadCards();
+renderCards();

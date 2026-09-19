@@ -8,3 +8,4 @@
 - Rendering system done
 - Card flip implemented
 - Learned feature added
+- Persistence implemented

@@ -1,2 +1,2 @@
 # Current Task:
-Persist data in localStorage
+Add filter (filtered/unfiltered)
