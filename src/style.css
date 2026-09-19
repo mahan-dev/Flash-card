@@ -1,4 +1,9 @@
 /* CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 :root {
     /* Dark theme colors */
     --primary-color: #bb86fc;          /* Accent (purple) */
