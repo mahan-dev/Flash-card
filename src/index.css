@@ -1,1 +1,5 @@
-/* Global styles – Tailwind directives will be added later */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add custom styles below */
