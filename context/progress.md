@@ -10,3 +10,4 @@
 - Learned feature added
 - Persistence implemented
 - Filtering system added
+- Ui polished
