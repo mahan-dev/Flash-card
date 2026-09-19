@@ -11,3 +11,4 @@
 - Persistence implemented
 - Filtering system added
 - Ui polished
+- Refactor done
